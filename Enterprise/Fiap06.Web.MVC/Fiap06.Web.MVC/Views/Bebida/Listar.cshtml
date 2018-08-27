@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Listar";
+}
+
+<h2>Lista de Bebidas</h2>
+@if (TempData["msg"] != null)
+{
+    <div>
+        @TempData["msg"]
+    </div>
+}
+
+
+<table class="table">
+    <tr>
+        <th>Nome</th>
+        <th>Preco</th>
+        <th>Destilado</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.BebidaId</td>
+            <td>@item.Nome</td>
+            <td>@item.Preco</td>
+            <td>@item.Destilado</td>
+            <td>
+                @Html.ActionLink("Editar", "Atualizar", new { id = item.BebidaId})
+            </td>
+        </tr>
+
+    }
+
+
+
+</table>
